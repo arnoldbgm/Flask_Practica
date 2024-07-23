@@ -1,4 +1,5 @@
+# Voy a traer informacion de mi mock (Base de datos falsa)
 from mocks.empleado_mock import empleados
 
-def todos_empleados():
-    return empleados
+def mostrarEmpleados():
+   return empleados

@@ -25,6 +25,10 @@ Este proyecto es una aplicación básica en Flask para practicar la logica
         ```bash
         venv\Scripts\activate
         ```
+    - En gitbash:
+        ```
+        source venv/Scripts/activate
+        ```
     - En macOS y Linux:
         ```bash
         source venv/bin/activate
