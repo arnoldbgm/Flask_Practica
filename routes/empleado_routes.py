@@ -1,23 +1,25 @@
+from flask import jsonify, Blueprint
+# Vamos a usar la mock
+from mocks.empleado_mock import empleados
+# Estoy importando las funciones de mi controlador
+from controllers.empleado_controller import mostrarTodosMisEmpleados, mostrarCasados
 
-# PASO 1: Crear rutas, debes de importar  (solo se hace 1 vez)
-from flask import jsonify, Blueprint 
 
-# PASO 2: Tienes que instanciar tu Blueprint (solo se hace 1 vez)
-empleado_routes = Blueprint('empleado_routes', __name__)  #Esto me permite crear mis rutas
+empleado_routes = Blueprint('empleado_routes', __name__)
 
-#PASO 3: Crear nuestra ruta pesonalizada
-# Debes de usar la variable donde instanciaste (almacenaste) Blueprint
-# Para crear tu primera ruta debes de iniciar con un @
+@empleado_routes.route('/hombre_casado', methods=['GET'])
+def mostrar_hombre_casado():
 
-# @instancia.route('/nombreruta', methods=['GET'])
-@empleado_routes.route('/empleados', methods=['GET'])
-# Ahora pongo la funcion que se ejecutara cuando entre a esta ruta
-def empleados():
-   # El backend siempre debe de responder a las peticiones del cliente
-   # 😁 SIEMPRE debes de retornar usando jsonify -> para que te funcione debes de importarlo
-   # Se importa poniendolo al costado del Blueprint
+    hombres_cas = mostrarCasados()
+    # Hasta antes del jsonify
     return jsonify(
-        {
-            "mensage": "Hola mundo"
-        }
-    )
+            {"msg": hombres_cas}
+        )
+
+
+@empleado_routes.route('/empleados', methods=['GET'])
+def mostrar_empleados():
+    todosLosEmpleados = mostrarTodosMisEmpleados()
+    return jsonify({
+        "msg": todosLosEmpleados
+    })
