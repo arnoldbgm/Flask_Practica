@@ -1,6 +1,6 @@
-# Flask Employee Filter
+# Flask Ejemplo de Backend
 
-Este proyecto es una aplicación básica en Flask que filtra empleados mayores de edad.
+Este proyecto es una aplicación básica en Flask para practicar la logica
 
 ## Estructura del Proyecto
 
@@ -45,7 +45,7 @@ Este proyecto es una aplicación básica en Flask que filtra empleados mayores d
 2. **Accede al endpoint**:
     - Abre tu navegador o usa una herramienta como Postman para probar el endpoint:
       ```
-      http://127.0.0.1:5000/empleados/adultos
+      http://127.0.0.1:5000/api/v1/empleados
       ```
 
 ## Notas
